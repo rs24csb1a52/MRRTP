@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRRTP - The Human-Powered Dishwasher Revolution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: #f9fafb; color: #2d3748; line-height: 1.7; overflow-x: hidden; }
+
+        /* Header */
+        header { 
+            background: linear-gradient(135deg, #2d3748, #4a5568); 
+            color: #fff; 
+            text-align: center; 
+            padding: 80px 20px; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        header h1 { font-size: 3.5rem; font-weight: 700; }
+        header p { font-size: 1.3rem; margin-top: 10px; }
+
+        /* General Styles */
+        .container { max-width: 1200px; margin: auto; padding: 40px 20px; text-align: center; }
+        .btn { 
+            background: #38a169; 
+            color: #fff; 
+            padding: 15px 35px; 
+            text-decoration: none; 
+            font-size: 1.2rem; 
+            border-radius: 50px; 
+            display: inline-block; 
+            margin-top: 20px; 
+            transition: all 0.3s ease; 
+        }
+        .btn:hover { background: #2f855a; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+        /* Hero Section */
+        .hero { 
+            background: #fff; 
+            padding: 80px 20px; 
+            margin: 20px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+        }
+        .hero img { 
+            max-width: 70%; 
+            border-radius: 15px; 
+            transition: transform 0.5s ease; 
+        }
+        .hero img:hover { transform: scale(1.03); }
+        .hero h2 { font-size: 2.5rem; color: #38a169; margin-bottom: 15px; }
+
+        /* Sections */
+        .section { padding: 80px 20px; background: #fff; }
+        h2 { font-size: 2.5rem; color: #38a169; margin-bottom: 25px; font-weight: 600; }
+        .features, .how-it-works { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; 
+            padding: 20px; 
+        }
+        .feature-box, .step-box { 
+            background: #f7fafc; 
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+            transition: transform 0.3s ease; 
+        }
+        .feature-box:hover, .step-box:hover { transform: translateY(-10px); }
+        .feature-box h3, .step-box h3 { font-size: 1.6rem; margin-bottom: 10px; color: #2d3748; }
+        .feature-box i, .step-box i { color: #38a169; margin-right: 10px; }
+
+        /* Enhanced Problem & Solution Sections */
+        .problem-solution { padding: 100px 20px; }
+        .problem-solution h2 { font-size: 3rem; margin-bottom: 30px; }
+        .problem-solution p { font-size: 1.4rem; margin: 20px 0; line-height: 2; }
+        .problem-solution strong { font-size: 1.6rem; color: #2d3748; }
+        .problem-solution .subheading { font-size: 1.8rem; font-weight: 600; color: #4a5568; margin: 30px 0 15px; }
+
+        /* Manufacturing & Why Produce */
+        .manufacturing ul, .why-produce ul { 
+            list-style: none; 
+            text-align: left; 
+            max-width: 700px; 
+            margin: 20px auto; 
+        }
+        .manufacturing li, .why-produce li { 
+            padding: 15px; 
+            background: #f7fafc; 
+            margin: 10px 0; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+        }
+        .manufacturing li::before { 
+            content: '\f013'; 
+            font-family: 'Font Awesome 6 Free'; 
+            font-weight: 900; 
+            margin-right: 10px; 
+            color: #38a169; 
+        }
+        .why-produce li::before { 
+            content: '\f058'; 
+            font-family: 'Font Awesome 6 Free'; 
+            font-weight: 900; 
+            margin-right: 10px; 
+            color: #38a169; 
+        }
+
+        /* Order Section */
+        #order { 
+            background: linear-gradient(135deg, #38a169, #2f855a); 
+            color: #fff; 
+            border-radius: 20px; 
+            margin: 20px; 
+            padding: 60px 20px; 
+        }
+        #order .btn { background: #fff; color: #38a169; }
+        #order .btn:hover { background: #edf2f7; }
+
+        /* Footer */
+        .footer { 
+            background: #2d3748; 
+            color: #fff; 
+            padding: 40px 20px; 
+            text-align: center; 
+        }
+        .footer a { color: #38a169; text-decoration: none; margin: 0 10px; }
+        .footer a:hover { text-decoration: underline; }
+
+        /* Animations */
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .section, .hero { animation: slideIn 0.8s ease-out; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) { 
+            header h1 { font-size: 2.5rem; } 
+            .hero img { max-width: 90%; } 
+            h2 { font-size: 2rem; } 
+            .btn { font-size: 1rem; padding: 12px 25px; } 
+            .problem-solution h2 { font-size: 2.5rem; } 
+            .problem-solution p { font-size: 1.2rem; } 
+            .problem-solution strong { font-size: 1.4rem; } 
+            .problem-solution .subheading { font-size: 1.6rem; } 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MRRTP - The Dishwasher Revolution</h1>
+        <p>Affordable. Durable. Eco-Friendly. No Electricity Needed.</p>
+    </header>
+
+    <section class="hero">
+        <img src="mrrtp-product.jpg" alt="MRRTP Human-Powered Dishwasher">
+        <h2>Clean Smarter for Just ₹1,599</h2>
+        <p>Say goodbye to expensive dishwashers and endless hand-washing. MRRTP delivers efficiency without the bills.</p>
+        <a href="#order" class="btn">Buy Now</a>
+    </section>
+
+    <section class="container section problem-solution">
+        <h2>The Problem</h2>
+        <p><strong>Traditional dishwashers are a financial burden</strong>—costing upwards of ₹30,000 to purchase and an additional ₹3,500 in electricity every single year. That’s a massive expense for something that should make life easier, not harder.</p>
+        <p class="subheading">The Hand-Washing Struggle</p>
+        <p>Then there’s hand-washing: slow, exhausting, and a total time-suck. Imagine spending hours scrubbing greasy pots and pans, only to end up with sore hands and a sink full of lukewarm, dirty water. It’s inefficient, wasteful, and leaves millions of households desperate for a better way.</p>
+        <p class="subheading">A Global Issue</p>
+        <p>This isn’t just a minor inconvenience—it’s a widespread problem. From urban apartments to rural homes, people are stuck choosing between pricey, power-hungry machines or backbreaking manual labor. The average family can’t afford the luxury of a dishwasher, and the environment can’t afford the energy waste. Something has to change.</p>
+    </section>
+
+    <section class="section problem-solution">
+        <h2>The Solution - MRRTP</h2>
+        <p><strong>Meet MRRTP: the human-powered dishwasher that rewrites the rules.</strong> For just ₹1,599, you get a lifetime of clean dishes without a single rupee spent on electricity. It’s not just affordable—it’s a game-changer built to last.</p>
+        <p class="subheading">How It Delivers</p>
+        <p>MRRTP uses a simple, ingenious design: a stainless steel bucket with a rotating disk and bristles that scrub your dishes clean. You turn the handle, and that’s it—no cords, no bills, no fuss. It’s compact enough for any kitchen, durable enough for daily use, and eco-friendly enough to feel good about.</p>
+        <p class="subheading">Why It’s Different</p>
+        <p>Unlike traditional dishwashers that drain your wallet and the planet’s resources, MRRTP is a one-time investment. No recurring costs, no complicated setup—just pure, practical efficiency. It’s the perfect fit for every household, from budget-conscious families to sustainability advocates.</p>
+    </section>
+
+    <section class="section">
+        <h2>How It Works</h2>
+        <div class="how-it-works">
+            <div class="step-box">
+                <h3><i class="fas fa-water"></i> Load Dishes</h3>
+                <p>Place dishes around the rotating disk inside the stainless steel bucket. Add a splash of water and soap for best results.</p>
+            </div>
+            <div class="step-box">
+                <h3><i class="fas fa-cog"></i> Rotate Handle</h3>
+                <p>Turn the ergonomic handle to spin the bristle-covered disk. The smooth bearings ensure effortless motion.</p>
+            </div>
+            <div class="step-box">
+                <h3><i class="fas fa-check"></i> Clean & Done</h3>
+                <p>Dishes are scrubbed clean in minutes—no power, no hassle. Rinse and dry as needed.</p>
+            </div>
+        </div>
+        <img src="https://via.placeholder.com/600x300?text=How+It+Works+Diagram" alt="How It Works Diagram">
+    </section>
+
+    <section class="section">
+        <h2>Key Features & Benefits</h2>
+        <div class="features">
+            <div class="feature-box">
+                <h3><i class="fas fa-plug"></i> No Electricity</h3>
+                <p>Fully hand-powered—zero energy costs forever. Save ₹3,500+ annually compared to electric models.</p>
+            </div>
+            <div class="feature-box">
+                <h3><i class="fas fa-rupee-sign"></i> ₹1,599 Only</h3>
+                <p>Affordable price, no hidden fees. A fraction of the ₹30,000+ cost of traditional dishwashers.</p>
+            </div>
+            <div class="feature-box">
+                <h3><i class="fas fa-shield-alt"></i> Stainless Steel</h3>
+                <p>Built to last with corrosion-resistant materials. Tough enough for daily use.</p>
+            </div>
+            <div class="feature-box">
+                <h3><i class="fas fa-leaf"></i> Eco-Friendly</h3>
+                <p>Minimal water use, zero emissions. Reduce your carbon footprint effortlessly.</p>
+            </div>
+            <div class="feature-box">
+                <h3><i class="fas fa-box"></i> Compact</h3>
+                <p>Fits anywhere, moves anywhere. Ideal for small apartments or rural homes.</p>
+            </div>
+            <div class="feature-box">
+                <h3><i class="fas fa-hand-sparkles"></i> Easy to Use</h3>
+                <p>Simple handle rotation gets the job done. No complicated setup or maintenance.</p>
+            </div>
+        </div>
+        <img src="https://via.placeholder.com/600x300?text=Feature+Highlight" alt="Feature Highlight">
+    </section>
+
+    <section class="section manufacturing">
+        <h2>Manufacturing Process</h2>
+        <p>MRRTP is crafted with precision to ensure durability and performance. Here’s how it’s made:</p>
+        <ul>
+            <li>High-grade stainless steel bucket ensures durability and rust resistance—perfect for wet environments.</li>
+            <li>Rotating disk with nylon bristles, mounted on bearings for smooth spins and effective cleaning.</li>
+            <li>Hollow metal pipe with internal wiring and bearings for effortless motion and long-term reliability.</li>
+            <li>Pivot clamp at the top secures the system while allowing rotation—built for stability.</li>
+            <li>Bottom clamp stabilizes the disk for all dish sizes, from plates to pots.</li>
+            <li>Ergonomic handle attached for comfortable operation, even during extended use.</li>
+        </ul>
+        <img src="https://via.placeholder.com/600x300?text=Manufacturing+Line" alt="Manufacturing Line">
+    </section>
+
+    <section class="section why-produce">
+        <h2>Why Manufacturers Should Produce MRRTP</h2>
+        <p>A game-changer for your production line and the market—here’s why:</p>
+        <ul>
+            <li>High demand from budget-conscious and eco-friendly households—tap into a growing market.</li>
+            <li>Low-cost production using common materials—high profit margins with minimal investment.</li>
+            <li>Appeals to the growing sustainable living trend—position your brand as a green leader.</li>
+            <li>Easily scalable with existing metalworking setups—no need for costly retooling.</li>
+        </ul>
+        <img src="https://via.placeholder.com/600x300?text=Factory+Production" alt="Factory Production">
+        <p>Start producing MRRTP and meet the needs of millions while boosting your bottom line.</p>
+    </section>
+
+    <section class="container section" id="order">
+        <h2>Get Yours Now</h2>
+        <p>Revolutionize your kitchen with MRRTP for just ₹1,599. Limited stock—act fast!</p>
+        <img src="https://via.placeholder.com/600x300?text=Order+Now+Banner" alt="Order Now Banner">
+        <a href="#" class="btn">Order Now</a>
+    </section>
+
+    <section class="container section">
+        <h2>Why Choose MRRTP?</h2>
+        <p>Forget ₹30,000 dishwashers and ₹3,500 yearly bills. MRRTP delivers the same clean for ₹1,599—no electricity, no compromise. It’s compact, durable, and eco-friendly, making it the ultimate choice for modern households.</p>
+        <img src="https://via.placeholder.com/600x300?text=Happy+Family+Using+MRRTP" alt="Happy Family Using MRRTP">
+        <p>Join the future of dishwashing today—affordable for all, sustainable for the planet.</p>
+    </section>
+
+    <div class="footer">
+        <p>© 2025 MRRTP. All rights reserved. | <a href="#">Contact Us</a> | <a href="#">FAQ</a> | <a href="#">Manufacturer Inquiry</a></p>
+    </div>
+</body>
+</html>
