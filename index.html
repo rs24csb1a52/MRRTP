@@ -7,23 +7,61 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: #f9fafb; color: #2d3748; line-height: 1.7; overflow-x: hidden; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Poppins', sans-serif; 
+        }
+        
+        body { 
+            background: #f9fafb; 
+            color: #2d3748; 
+            line-height: 1.7; 
+            overflow-x: hidden; 
+            text-align: center;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
 
         /* Header */
         header { 
             background: linear-gradient(135deg, #2d3748, #4a5568); 
             color: #fff; 
             text-align: center; 
-            padding: 80px 20px; 
+            padding: 100px 20px; 
             position: relative; 
             overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-        header h1 { font-size: 3.5rem; font-weight: 700; }
-        header p { font-size: 1.3rem; margin-top: 10px; }
+        header h1 { 
+            font-size: 3.5rem; 
+            font-weight: 700;
+            animation: fadeInDown 1s ease-out;
+        }
+        header p { 
+            font-size: 1.3rem; 
+            margin-top: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
 
         /* General Styles */
-        .container { max-width: 1200px; margin: auto; padding: 40px 20px; text-align: center; }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            text-align: center; 
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
         .btn { 
             background: #38a169; 
             color: #fff; 
@@ -33,59 +71,172 @@
             border-radius: 50px; 
             display: inline-block; 
             margin-top: 20px; 
-            transition: all 0.3s ease; 
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(56, 161, 105, 0.3);
         }
-        .btn:hover { background: #2f855a; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .btn:hover { 
+            background: #2f855a; 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 25px rgba(56, 161, 105, 0.4);
+        }
 
         /* Hero Section */
         .hero { 
             background: #fff; 
             padding: 80px 20px; 
-            margin: 20px; 
+            margin: 40px auto;
+            max-width: 1200px;
             border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: slideIn 1s ease-out;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         .hero img { 
-            max-width: 70%; 
+            max-width: 50%; 
             border-radius: 15px; 
-            transition: transform 0.5s ease; 
+            transition: all 0.5s ease;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
+            margin: 20px 0;
+            background: #fff;
+            padding: 20px;
         }
-        .hero img:hover { transform: scale(1.03); }
-        .hero h2 { font-size: 2.5rem; color: #38a169; margin-bottom: 15px; }
+        .hero img:hover { 
+            transform: scale(1.05) rotate(2deg);
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+        }
+        .hero h2 { 
+            font-size: 2.2rem; 
+            color: #38a169; 
+            margin: 15px 0;
+            animation: fadeIn 1s ease-out;
+        }
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out;
+        }
 
         /* Sections */
-        .section { padding: 80px 20px; background: #fff; }
-        h2 { font-size: 2.5rem; color: #38a169; margin-bottom: 25px; font-weight: 600; }
+        .section { 
+            padding: 100px 20px; 
+            background: #fff;
+            margin: 40px auto;
+            max-width: 1200px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h2 { 
+            font-size: 2.5rem; 
+            color: #38a169; 
+            margin-bottom: 40px; 
+            font-weight: 600;
+            animation: fadeIn 1s ease-out;
+        }
         .features, .how-it-works { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 30px; 
-            padding: 20px; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
         }
         .feature-box, .step-box { 
             background: #f7fafc; 
-            padding: 30px; 
-            border-radius: 15px; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
-            transition: transform 0.3s ease; 
+            padding: 40px 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
         }
-        .feature-box:hover, .step-box:hover { transform: translateY(-10px); }
-        .feature-box h3, .step-box h3 { font-size: 1.6rem; margin-bottom: 10px; color: #2d3748; }
-        .feature-box i, .step-box i { color: #38a169; margin-right: 10px; }
+        .feature-box:hover, .step-box:hover { 
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .feature-box h3, .step-box h3 { 
+            font-size: 1.6rem; 
+            margin-bottom: 20px; 
+            color: #2d3748;
+        }
+        .feature-box i, .step-box i { 
+            color: #38a169; 
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
 
         /* Enhanced Problem & Solution Sections */
-        .problem-solution { padding: 100px 20px; }
+        .problem-solution {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
         .problem-solution h2 { font-size: 3rem; margin-bottom: 30px; }
-        .problem-solution p { font-size: 1.4rem; margin: 20px 0; line-height: 2; }
+        .problem-solution p { font-size: 1.4rem; margin: 15px auto; line-height: 2; }
         .problem-solution strong { font-size: 1.6rem; color: #2d3748; }
         .problem-solution .subheading { font-size: 1.8rem; font-weight: 600; color: #4a5568; margin: 30px 0 15px; }
 
         /* Manufacturing & Why Produce */
-        .manufacturing ul, .why-produce ul { 
-            list-style: none; 
-            text-align: left; 
-            max-width: 700px; 
-            margin: 20px auto; 
+        .manufacturing, .why-produce {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .manufacturing ul, .why-produce ul {
+            list-style: none;
+            text-align: left;
+            max-width: 700px;
+            margin: 20px auto;
+            width: 100%;
         }
         .manufacturing li, .why-produce li { 
             padding: 15px; 
@@ -110,12 +261,18 @@
         }
 
         /* Order Section */
-        #order { 
-            background: linear-gradient(135deg, #38a169, #2f855a); 
-            color: #fff; 
-            border-radius: 20px; 
-            margin: 20px; 
-            padding: 60px 20px; 
+        #order {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #38a169, #2f855a);
+            color: #fff;
+            border-radius: 20px;
+            margin: 40px auto;
+            padding: 60px 20px;
+            max-width: 1200px;
         }
         #order .btn { background: #fff; color: #38a169; }
         #order .btn:hover { background: #edf2f7; }
@@ -130,20 +287,32 @@
         .footer a { color: #38a169; text-decoration: none; margin: 0 10px; }
         .footer a:hover { text-decoration: underline; }
 
-        /* Animations */
-        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .section, .hero { animation: slideIn 0.8s ease-out; }
+        /* Remove placeholder images from sections */
+        .section img:not(.hero img) {
+            display: none;
+        }
 
         /* Responsive Design */
-        @media (max-width: 768px) { 
-            header h1 { font-size: 2.5rem; } 
-            .hero img { max-width: 90%; } 
-            h2 { font-size: 2rem; } 
-            .btn { font-size: 1rem; padding: 12px 25px; } 
-            .problem-solution h2 { font-size: 2.5rem; } 
-            .problem-solution p { font-size: 1.2rem; } 
-            .problem-solution strong { font-size: 1.4rem; } 
-            .problem-solution .subheading { font-size: 1.6rem; } 
+        @media (max-width: 768px) {
+            .section, .hero, .container, #order {
+                min-height: 100vh;
+                padding: 30px 15px;
+            }
+            
+            .hero img {
+                max-width: 70%;
+            }
+            
+            .features, .how-it-works {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        /* Add scroll snap to sections */
+        .section, .hero, header {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
         }
     </style>
 </head>
@@ -154,7 +323,7 @@
     </header>
 
     <section class="hero">
-        <img src="mrrtp-product.jpg" alt="MRRTP Human-Powered Dishwasher">
+        <img src="./image.png" alt="MRRTP Human-Powered Dishwasher">
         <h2>Clean Smarter for Just ₹1,599</h2>
         <p>Say goodbye to expensive dishwashers and endless hand-washing. MRRTP delivers efficiency without the bills.</p>
         <a href="#order" class="btn">Buy Now</a>
@@ -162,20 +331,20 @@
 
     <section class="container section problem-solution">
         <h2>The Problem</h2>
-        <p><strong>Traditional dishwashers are a financial burden</strong>—costing upwards of ₹30,000 to purchase and an additional ₹3,500 in electricity every single year. That’s a massive expense for something that should make life easier, not harder.</p>
+        <p><strong>Traditional dishwashers are a financial burden</strong>—costing upwards of ₹30,000 to purchase and an additional ₹3,500 in electricity every single year. That's a massive expense for something that should make life easier, not harder.</p>
         <p class="subheading">The Hand-Washing Struggle</p>
-        <p>Then there’s hand-washing: slow, exhausting, and a total time-suck. Imagine spending hours scrubbing greasy pots and pans, only to end up with sore hands and a sink full of lukewarm, dirty water. It’s inefficient, wasteful, and leaves millions of households desperate for a better way.</p>
+        <p>Then there's hand-washing: slow, exhausting, and a total time-suck. Imagine spending hours scrubbing greasy pots and pans, only to end up with sore hands and a sink full of lukewarm, dirty water. It's inefficient, wasteful, and leaves millions of households desperate for a better way.</p>
         <p class="subheading">A Global Issue</p>
-        <p>This isn’t just a minor inconvenience—it’s a widespread problem. From urban apartments to rural homes, people are stuck choosing between pricey, power-hungry machines or backbreaking manual labor. The average family can’t afford the luxury of a dishwasher, and the environment can’t afford the energy waste. Something has to change.</p>
+        <p>This isn't just a minor inconvenience—it's a widespread problem. From urban apartments to rural homes, people are stuck choosing between pricey, power-hungry machines or backbreaking manual labor. The average family can't afford the luxury of a dishwasher, and the environment can't afford the energy waste. Something has to change.</p>
     </section>
 
     <section class="section problem-solution">
         <h2>The Solution - MRRTP</h2>
-        <p><strong>Meet MRRTP: the human-powered dishwasher that rewrites the rules.</strong> For just ₹1,599, you get a lifetime of clean dishes without a single rupee spent on electricity. It’s not just affordable—it’s a game-changer built to last.</p>
+        <p><strong>Meet MRRTP: the human-powered dishwasher that rewrites the rules.</strong> For just ₹1,599, you get a lifetime of clean dishes without a single rupee spent on electricity. It's not just affordable—it's a game-changer built to last.</p>
         <p class="subheading">How It Delivers</p>
-        <p>MRRTP uses a simple, ingenious design: a stainless steel bucket with a rotating disk and bristles that scrub your dishes clean. You turn the handle, and that’s it—no cords, no bills, no fuss. It’s compact enough for any kitchen, durable enough for daily use, and eco-friendly enough to feel good about.</p>
-        <p class="subheading">Why It’s Different</p>
-        <p>Unlike traditional dishwashers that drain your wallet and the planet’s resources, MRRTP is a one-time investment. No recurring costs, no complicated setup—just pure, practical efficiency. It’s the perfect fit for every household, from budget-conscious families to sustainability advocates.</p>
+        <p>MRRTP uses a simple, ingenious design: a stainless steel bucket with a rotating disk and bristles that scrub your dishes clean. You turn the handle, and that's it—no cords, no bills, no fuss. It's compact enough for any kitchen, durable enough for daily use, and eco-friendly enough to feel good about.</p>
+        <p class="subheading">Why It's Different</p>
+        <p>Unlike traditional dishwashers that drain your wallet and the planet's resources, MRRTP is a one-time investment. No recurring costs, no complicated setup—just pure, practical efficiency. It's the perfect fit for every household, from budget-conscious families to sustainability advocates.</p>
     </section>
 
     <section class="section">
@@ -230,7 +399,7 @@
 
     <section class="section manufacturing">
         <h2>Manufacturing Process</h2>
-        <p>MRRTP is crafted with precision to ensure durability and performance. Here’s how it’s made:</p>
+        <p>MRRTP is crafted with precision to ensure durability and performance. Here's how it's made:</p>
         <ul>
             <li>High-grade stainless steel bucket ensures durability and rust resistance—perfect for wet environments.</li>
             <li>Rotating disk with nylon bristles, mounted on bearings for smooth spins and effective cleaning.</li>
@@ -244,7 +413,7 @@
 
     <section class="section why-produce">
         <h2>Why Manufacturers Should Produce MRRTP</h2>
-        <p>A game-changer for your production line and the market—here’s why:</p>
+        <p>A game-changer for your production line and the market—here's why:</p>
         <ul>
             <li>High demand from budget-conscious and eco-friendly households—tap into a growing market.</li>
             <li>Low-cost production using common materials—high profit margins with minimal investment.</li>
@@ -264,7 +433,7 @@
 
     <section class="container section">
         <h2>Why Choose MRRTP?</h2>
-        <p>Forget ₹30,000 dishwashers and ₹3,500 yearly bills. MRRTP delivers the same clean for ₹1,599—no electricity, no compromise. It’s compact, durable, and eco-friendly, making it the ultimate choice for modern households.</p>
+        <p>Forget ₹30,000 dishwashers and ₹3,500 yearly bills. MRRTP delivers the same clean for ₹1,599—no electricity, no compromise. It's compact, durable, and eco-friendly, making it the ultimate choice for modern households.</p>
         <img src="https://via.placeholder.com/600x300?text=Happy+Family+Using+MRRTP" alt="Happy Family Using MRRTP">
         <p>Join the future of dishwashing today—affordable for all, sustainable for the planet.</p>
     </section>
